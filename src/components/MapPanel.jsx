@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 import DetailPanel from "./DetailPanel";
 
-const MAP_CENTER = { lat: 31.41255, lng: 73.11500 };
-const MAP_ZOOM   = 19;
+const MAP_CENTER = { lat: 31.466, lng: 73.713 };
+const MAP_ZOOM   = 10;
 
 export default function MapPanel({ locations, selected, onSelect }) {
   const mapRef     = useRef(null);
@@ -55,7 +55,7 @@ export default function MapPanel({ locations, selected, onSelect }) {
 
   return (
     <div className="map-wrapper">
-      <div className="map-label">Kohinoor Plaza 1, Faisalabad — Satellite View</div>
+      <div className="map-label">OxyGenix Pod Locations — Satellite View</div>
       <div ref={mapRef} className="map-area" />
       <DetailPanel location={selected} />
     </div>

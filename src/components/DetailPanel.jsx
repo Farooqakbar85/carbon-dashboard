@@ -27,7 +27,7 @@ export default function DetailPanel({ location }) {
         </div>
         <div>
           <div className="detail-label">Carbon Fixed This Week</div>
-          <div className="detail-value">{location.carbonWeek}t</div>
+          <div className="detail-value">{location.carbonWeek} kg</div>
         </div>
       </div>
 

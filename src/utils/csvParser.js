@@ -12,7 +12,7 @@
 //   carbonTonnes = co2_ppm * CARBON_FACTOR
 //   Change CARBON_FACTOR below to match your real engineering formula.
 
-const CARBON_FACTOR = 0.001; // placeholder: 1 CO2 ppm reading = 0.001 tonne fixed
+const CARBON_FACTOR = 1.0; // 1 CO2 ppm reading = 1 kg fixed
 
 // -------------------------------------------------------------------
 // Helpers

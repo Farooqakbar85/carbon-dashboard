@@ -42,10 +42,10 @@ export async function fetchLocations() {
       deployDate: "2025-12-29",
     },
     "923137700777": {
-      name:       "Kohinoor Plaza 1 – Office 90 (2nd Floor)",
-      address:    "Kohinoor Plaza 1, Jaranwala Road, Faisalabad",
-      lat:        31.41265,
-      lng:        73.11510,
+      name:       "Green Building – EPA Punjab  (5nd Floor)",
+      address:    "27 College Rd, Block H Gulberg 2, Lahore",
+      lat:        31.51980,
+      lng:        74.33150,
       deployDate: "2025-12-30",
     },
   };

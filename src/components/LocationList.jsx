@@ -11,14 +11,14 @@ export default function LocationList({ locations, selected, onSelect }) {
             className="loc-row"
             onClick={() => onSelect(loc)}
             style={{
-              background:      active ? "#0d2a22"  : "transparent",
+              background:      active ? "#1d3b53"  : "transparent",
               borderLeftColor: active ? "#00e5c8"  : "transparent",
-              color:           active ? "#c8f0ea"  : "#4a9e8a",
+              color:           active ? "#d6deeb"  : "#5f7e97",
             }}
           >
             <div className="loc-row__name">{loc.name}</div>
             <span className="loc-row__meta">Pods: {loc.pods} &nbsp;|&nbsp; Fixed: </span>
-            <span className="loc-row__val">{loc.carbonWeek}t</span>
+            <span className="loc-row__val">{loc.carbonWeek} kg</span>
           </div>
         );
       })}
