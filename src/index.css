@@ -34,7 +34,6 @@ body {
   border-bottom: 1px solid #1d3b53;
   padding: 10px 24px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   gap: 0;
   position: sticky;
@@ -49,11 +48,10 @@ body {
   filter: brightness(1.1);
 }
 .header__divider {
-  display: none;
   width: 1px;
   height: 36px;
   background: #1d3b53;
-  margin: 0px 200px 0px 0px;
+  margin: 0 20px;
   flex-shrink: 0;
 }
 .header__title {
@@ -316,25 +314,21 @@ body {
   .sidebar {
     grid-column: 1;
     grid-row: 1;
-    /* Horizontal scrolling row of stat cards on mobile */
     overflow-y: visible;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding: 12px;
   }
 
-  /* Stat cards go side by side in a scrollable row */
+  /* Stat cards stack vertically on mobile */
   .stat-cards-row {
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
   }
   .stat-cards-row .stat-card {
-    min-width: 140px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
+    min-width: unset;
+    flex-shrink: unset;
+    scroll-snap-align: unset;
     margin-bottom: 0;
   }
   .stat-card__value { font-size: 20px; }
@@ -378,5 +372,6 @@ body {
   }
   .detail-value { font-size: 15px; }
   .detail-label { font-size: 8px; }
+
   .map-label { font-size: 8px; padding: 8px 10px 4px; }
 }
