@@ -62,7 +62,7 @@ export default function App() {
         <aside className="sidebar">
           <div className="sidebar__title">Network Overview (District Faisalabad)</div>
           <div className="stat-cards-row">
-            <StatCard label="Total OxyGenix Pods Deployed"  value={stats.totalPods}   decimals={0} />
+            <StatCard label="Total OxyGenix Trees Deployed"  value={stats.totalPods}   decimals={0} />
             <StatCard label="Carbon Fixed Today (KG)"        value={stats.carbonToday} decimals={2} />
             <StatCard label="Carbon Fixed This Month (KG)"   value={stats.carbonMonth} decimals={1} />
             <StatCard label="Total Carbon Fixed Since Launch" value={stats.carbonTotal} decimals={1} suffix=" KG" />

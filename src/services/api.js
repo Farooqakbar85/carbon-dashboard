@@ -3,25 +3,25 @@
 import { parseSCADA } from "../utils/csvParser";
 
 let cachedStats = null;
-let cacheTime   = 0;
+let cacheTime = 0;
 const CACHE_TTL = 30_000;
-const CSV_URL   = "/scada_data.csv";
+const CSV_URL = "/scada_data.csv";
 
 async function loadFromCSV() {
   const now = Date.now();
   if (cachedStats && now - cacheTime < CACHE_TTL) return cachedStats;
-  const res  = await fetch(CSV_URL);
+  const res = await fetch(CSV_URL);
   if (!res.ok) throw new Error(`Could not load CSV: ${res.status}`);
   const text = await res.text();
   cachedStats = await parseSCADA(text);
-  cacheTime   = now;
+  cacheTime = now;
   return cachedStats;
 }
 
 export async function fetchDashboardStats() {
   const data = await loadFromCSV();
   return {
-    totalPods:   data.totalPods,
+     totalPods: data.totalPods,
     carbonToday: data.carbonToday,
     carbonMonth: data.carbonMonth,
     carbonTotal: data.carbonTotal,
@@ -35,42 +35,49 @@ export async function fetchLocations() {
   // Tiny lat offset so both dots are separately visible on the map
   const DEVICE_META = {
     "923057700606": {
-      name:       "Kohinoor Plaza 1 – Office 60 (1st Floor)",
-      address:    "Kohinoor Plaza 1, Jaranwala Road, Faisalabad",
-      lat:        31.41245,
-      lng:        73.11490,
+      name: "Kohinoor Plaza 1 – Office 60 (1st Floor)",
+      address: "Kohinoor Plaza 1, Jaranwala Road, Faisalabad",
+      lat: 31.41245,
+      lng: 73.11490,
       deployDate: "2025-12-29",
     },
+    "923137700778": {
+      name: "Green Building – EPA Punjab (2nd Pod)",
+      address: "27 College Rd, Block H Gulberg 2, Lahore",
+      lat: 31.51985,
+      lng: 74.33155,
+      deployDate: "2025-12-31",
+    },
     "923137700777": {
-      name:       "Green Building – EPA Punjab  (5nd Floor)",
-      address:    "27 College Rd, Block H Gulberg 2, Lahore",
-      lat:        31.51980,
-      lng:        74.33150,
+      name: "Green Building – EPA Punjab  (5nd Floor)",
+      address: "27 College Rd, Block H Gulberg 2, Lahore",
+      lat: 31.51980,
+      lng: 74.33150,
       deployDate: "2025-12-30",
     },
   };
 
   return data.devices.map((dev, idx) => {
     const meta = DEVICE_META[dev.deviceId] ?? {
-      name:      `Pod ${dev.deviceId}`,
-      address:   "Faisalabad, Pakistan",
-      lat:       31.41260,
-      lng:       73.11500,
+      name: `Pod ${dev.deviceId}`,
+      address: "Faisalabad, Pakistan",
+      lat: 31.41260,
+      lng: 73.11500,
       deployDate: dev.lastSeen,
     };
 
     return {
-      id:         idx + 1,
-      name:       meta.name,
-      address:    meta.address,
-      pods:       1,
-      lat:        meta.lat,
-      lng:        meta.lng,
+      id: idx + 1,
+      name: meta.name,
+      address: meta.address,
+      pods: 1,
+      lat: meta.lat,
+      lng: meta.lng,
       carbonWeek: dev.carbonWeek,
       deployDate: meta.deployDate,
-      latestCO2:  dev.latestCO2,
-      latestOD:   dev.latestOD,
-      deviceId:   dev.deviceId,
+      latestCO2: dev.latestCO2,
+      latestOD: dev.latestOD,
+      deviceId: dev.deviceId,
     };
   });
 }

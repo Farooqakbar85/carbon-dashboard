@@ -1,7 +1,7 @@
 // src/components/StatCard.jsx
 import { useAnimatedNumber } from "../utils/animateNumber";
 
-export default function StatCard({ label, value, decimals = 3, suffix = "" }) {
+export default function StatCard({ label, value, decimals = 0, suffix = "" }) {
   const animated = useAnimatedNumber(value);
   const display  = decimals > 0 ? animated.toFixed(decimals) : Math.round(animated);
 
