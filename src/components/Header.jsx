@@ -1,5 +1,5 @@
 // src/components/Header.jsx
-import terraSparkLogo from "../assets/terraspark_logo.png";
+import terraSparkLogo from "../assets/Terra_spark_logo.png";
 
 export default function Header({ pulse }) {
   return (
